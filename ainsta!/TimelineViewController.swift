@@ -9,11 +9,11 @@
 import UIKit
 import Parse
 
-class TimelineViewController: UIViewController {
+class TimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    @IBOutlet weak var timelineTableView: UITableView!
     
-    @IBOutlet weak var theImage: UIImageView!
-    
-    @IBOutlet weak var captionLabel: UILabel!
+    var posts: [PFObject]!
 
 
     @IBAction func logoutButton(sender: AnyObject) {
@@ -23,6 +23,9 @@ class TimelineViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.getPosts()
+        timelineTableView.reloadData()
 
         // Do any additional setup after loading the view.
     }
@@ -32,7 +35,53 @@ class TimelineViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        print("the tweet count is")
+       
+        //return posts.count
+        if let posts = posts { //if movies is not nil, assign it to movies
+        print("the tweet count is")
+        //print(tweets.count)
+        return posts.count
+        
+        }
+        else {
+        print("count is 0")
+        return 0
+        }
+        
+    }
+    
 
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        let post = posts[indexPath.row]
+        let cell = timelineTableView.dequeueReusableCellWithIdentifier("timelinecell", forIndexPath: indexPath) as! TimelineTableViewCell
+        print("printing out the cells")
+       
+        cell.post = post
+        
+        
+        return cell
+        
+    }
+    
+    func getPosts(){
+        
+        let query = PFQuery(className: "Post")
+        query.orderByDescending("createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        // fetch data asynchronously
+        query.findObjectsInBackgroundWithBlock { (posts: [PFObject]?, error: NSError?) -> Void in
+            if let posts = posts {
+                self.posts = posts
+            } else {
+                print(error)
+                // handle error
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

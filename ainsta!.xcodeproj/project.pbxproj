@@ -10,6 +10,7 @@
 		53000D921C8D126C00771C9F /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53000D911C8D126B00771C9F /* TimelineViewController.swift */; };
 		53000D941C8D128600771C9F /* PostPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53000D931C8D128600771C9F /* PostPicViewController.swift */; };
 		53000D971C8D1A9500771C9F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53000D961C8D1A9500771C9F /* Post.swift */; };
+		53000D991C8D3A1200771C9F /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53000D981C8D3A1200771C9F /* TimelineTableViewCell.swift */; };
 		532537BD1C8BE66D002A6EC3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532537BC1C8BE66D002A6EC3 /* LoginViewController.swift */; };
 		53A917E51C891113006E25CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A917E41C891113006E25CA /* AppDelegate.swift */; };
 		53A917E71C891113006E25CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A917E61C891113006E25CA /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 		53000D911C8D126B00771C9F /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		53000D931C8D128600771C9F /* PostPicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPicViewController.swift; sourceTree = "<group>"; };
 		53000D961C8D1A9500771C9F /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		53000D981C8D3A1200771C9F /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		532537BC1C8BE66D002A6EC3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		53A917E11C891113006E25CA /* ainsta!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ainsta!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A917E41C891113006E25CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				532537BC1C8BE66D002A6EC3 /* LoginViewController.swift */,
 				53000D911C8D126B00771C9F /* TimelineViewController.swift */,
 				53000D931C8D128600771C9F /* PostPicViewController.swift */,
+				53000D981C8D3A1200771C9F /* TimelineTableViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53000D991C8D3A1200771C9F /* TimelineTableViewCell.swift in Sources */,
 				53000D941C8D128600771C9F /* PostPicViewController.swift in Sources */,
 				532537BD1C8BE66D002A6EC3 /* LoginViewController.swift in Sources */,
 				53000D921C8D126C00771C9F /* TimelineViewController.swift in Sources */,

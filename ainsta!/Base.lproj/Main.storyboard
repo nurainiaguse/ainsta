@@ -68,7 +68,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="222" id="2Di-XX-BmE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timelinecell" rowHeight="222" id="2Di-XX-BmE" customClass="TimelineTableViewCell" customModule="ainsta_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="222"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Di-XX-BmE" id="ZOm-ni-jux">
@@ -88,6 +88,10 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caption" destination="Arj-aP-OOV" id="OVr-30-yxI"/>
+                                            <outlet property="picture" destination="BsC-bN-uxL" id="BLh-op-vY6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -102,8 +106,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="captionLabel" destination="Arj-aP-OOV" id="88D-LR-tUF"/>
-                        <outlet property="theImage" destination="BsC-bN-uxL" id="fvg-GW-FGV"/>
+                        <outlet property="timelineTableView" destination="wCj-Xd-VnP" id="v0k-aL-9Aj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygp-FP-ieS" userLabel="First Responder" sceneMemberID="firstResponder"/>
