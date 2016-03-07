@@ -12,7 +12,11 @@ class PostPicViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBOutlet weak var chosenImage: UIImageView!
+    
+    var rawImage: UIImage!
 
+    @IBOutlet weak var caption: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +41,14 @@ class PostPicViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
+    @IBAction func submitButton(sender: AnyObject) {
+        
+        Post.postUserImage(rawImage, withCaption: caption.text, withCompletion: { (success: Bool, error: NSError?) -> Void in
+           
+        })
+    }
+    
+    
     
 
     func imagePickerController(picker: UIImagePickerController,
@@ -44,6 +56,10 @@ class PostPicViewController: UIViewController, UIImagePickerControllerDelegate, 
             // Get the image captured by the UIImagePickerController
             let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+            
+            chosenImage.image = editedImage
+            
+            rawImage = editedImage
             
             // Do something with the images (based on your use case)
             
