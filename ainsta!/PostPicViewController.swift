@@ -46,7 +46,6 @@ class PostPicViewController: UIViewController, UIImagePickerControllerDelegate, 
         Post.postUserImage(rawImage, withCaption: "this", withCompletion: { (success: Bool, error: NSError?) -> Void in
            
         })
-        NSNotificationCenter.defaultCenter().postNotificationName("photoUpload", object: nil)
     }
     
     
@@ -60,12 +59,24 @@ class PostPicViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             chosenImage.image = editedImage
             
-            rawImage = editedImage
+            rawImage = resize(editedImage, newSize: CGSize(width: 120, height: 120))
             
             // Do something with the images (based on your use case)
             
             // Dismiss UIImagePickerController to go back to your original view controller
             dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func resize(image: UIImage, newSize: CGSize) -> UIImage {
+        let resizeImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
+        resizeImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        resizeImageView.image = image
+        
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     /*

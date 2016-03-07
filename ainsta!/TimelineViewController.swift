@@ -17,19 +17,31 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
 
 
     @IBAction func logoutButton(sender: AnyObject) {
-        
+        self.dismissViewControllerAnimated(true, completion: {() -> Void in
+        })
         PFUser.logOut()
+        
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        timelineTableView.delegate = self
+        timelineTableView.dataSource = self
+        
+        self.getPosts()
+        timelineTableView.reloadData()
+
+
+        // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(animated: Bool) {
+        print("view did appear")
+        super.viewDidAppear(true)
         self.getPosts()
         timelineTableView.reloadData()
         
-        NSNotificationCenter.defaultCenter().addObserver(self,selector: "loadPics", name: "photoUpload", object: nil)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,12 +65,7 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
     }
-    
-    func loadPics(notification: NSNotification){
-        
-        getPosts()
-        timelineTableView.reloadData()
-    }
+
     
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
