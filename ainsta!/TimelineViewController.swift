@@ -10,6 +10,11 @@ import UIKit
 import Parse
 
 class TimelineViewController: UIViewController {
+    
+    @IBOutlet weak var theImage: UIImageView!
+    
+    @IBOutlet weak var captionLabel: UILabel!
+
 
     @IBAction func logoutButton(sender: AnyObject) {
         

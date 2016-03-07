@@ -20,7 +20,7 @@ class PostPicViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //self.caption.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -43,7 +43,7 @@ class PostPicViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func submitButton(sender: AnyObject) {
         
-        Post.postUserImage(rawImage, withCaption: caption.text, withCompletion: { (success: Bool, error: NSError?) -> Void in
+        Post.postUserImage(rawImage, withCaption: "this", withCompletion: { (success: Bool, error: NSError?) -> Void in
            
         })
     }
