@@ -26,6 +26,8 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.getPosts()
         timelineTableView.reloadData()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,selector: "loadPics", name: "photoUpload", object: nil)
 
         // Do any additional setup after loading the view.
     }
@@ -52,15 +54,23 @@ class TimelineViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
+    func loadPics(notification: NSNotification){
+        
+        getPosts()
+        timelineTableView.reloadData()
+    }
+    
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let post = posts[indexPath.row]
         let cell = timelineTableView.dequeueReusableCellWithIdentifier("timelinecell", forIndexPath: indexPath) as! TimelineTableViewCell
-        print("printing out the cells")
-       
-        cell.post = post
+        if posts != nil{
+            let post = posts[indexPath.row]
         
+            print("printing out the cells")
+            
+            cell.post = post
         
+        }
         return cell
         
     }

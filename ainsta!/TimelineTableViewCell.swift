@@ -18,7 +18,16 @@ class TimelineTableViewCell: UITableViewCell {
     var post: PFObject?{
         
         didSet{
-            
+            caption.text = post!["caption"] as? String
+            if let picture = post!["media"] as? PFFile {
+                
+                picture.getDataInBackgroundWithBlock({ (imageData:NSData?, error:NSError?) -> Void in
+                    if error == nil{
+                        self.picture.image = UIImage(data:imageData!)
+                        
+                    }
+                })
+            }
         }
     }
 

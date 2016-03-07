@@ -46,6 +46,7 @@ class PostPicViewController: UIViewController, UIImagePickerControllerDelegate, 
         Post.postUserImage(rawImage, withCaption: "this", withCompletion: { (success: Bool, error: NSError?) -> Void in
            
         })
+        NSNotificationCenter.defaultCenter().postNotificationName("photoUpload", object: nil)
     }
     
     
