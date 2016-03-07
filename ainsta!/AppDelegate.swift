@@ -21,9 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "ainsta"
                 configuration.clientKey = "4chweoty1x809wlkejgcn"
-                configuration.server = "murmuring-beach-24720.herokuapp.com/parse"
+                configuration.server = "https://murmuring-beach-24720.herokuapp.com/parse"
             })
             )
+        if PFUser.currentUser() != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("tabBarNavController")
+            window?.rootViewController = vc
+
+        }
         return true
     }
 

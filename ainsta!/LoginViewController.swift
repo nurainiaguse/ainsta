@@ -16,7 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        print("in login view controller")
+            super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
@@ -37,6 +38,7 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                 print("User logged in successfully")
+                self.performSegueWithIdentifier("loginSegue", sender: nil)
                 // display view controller that needs to shown after successful login
             }
         }
@@ -56,6 +58,7 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                 print("User Registered successfully")
+                self.performSegueWithIdentifier("loginSegue", sender: nil)
                 // manually segue to logged in view
             }
         }
@@ -63,7 +66,7 @@ class LoginViewController: UIViewController {
     }
     
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -71,6 +74,6 @@ class LoginViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }
